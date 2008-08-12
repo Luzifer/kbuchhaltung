@@ -1,0 +1,80 @@
+.kalender {
+	width: 220px;
+	height: 180px;
+	font-size: 8pt;
+	border: 1px solid black;
+	font-family: sans-serif;
+}
+
+.kalender td {
+	font-size: 8pt;
+}
+
+.kalender a:link, .kalender a:visited, .kalender a:active {
+	color: black;
+	text-decoration: none;
+}
+
+.kal-header {
+	text-align: center; 
+	background: #0066CC;
+	color: #cceeff;
+}
+
+.kal-header-lnk {
+	text-align: center;
+	background: #0066CC;
+	color: #cceeff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.kal-day {
+	text-align: center;
+	cursor: pointer;
+
+}
+
+.kal-weday {
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.kal-today {
+	text-align: center;
+	font-weight: bold;
+	color: red;
+	cursor: pointer;
+}
+
+.kal-head {
+	text-align: center;
+	background: #eeeeee;
+	width: 12%;
+}
+
+.kal-week {
+	text-align: center;
+	font-style: italic;
+	color: #666666;
+}
+
+.kal-weekhead {
+	text-align: center;
+	background: #eeeeee;
+	width: 16%;
+}
+
+.today {
+	text-align: center;
+	cursor: pointer;
+}
+
+.choose {
+	background: #0066CC;
+	border: 1px solid #cceeff;
+	color: #cceeff;
+	height: 15px;
+	font-size: 8pt;
+}
