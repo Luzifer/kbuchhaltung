@@ -19,6 +19,7 @@
 
 // JavaScript Document
 
+// Function to initialize the components and fill the account lists
 function initapp() {
 	$('buchungform').disable();
 	ShowCurrentCalendar('kalender', 'DataClick');
@@ -28,6 +29,7 @@ function initapp() {
 	loadBDates();
 }
 
+// Loads the left sidebar from the interface
 function loadkontoliste() {
 	new Ajax.Request('interface/kontenliste.php', {
 		method: 'get',
@@ -54,6 +56,7 @@ function loadkontoliste() {
 	});
 }
 
+// Function to load the accounting entries of the given account
 function loadbuchungen(ktoid) {
 	if(ktoid == '')
 		return;
@@ -113,6 +116,7 @@ function loadbuchungen(ktoid) {
 	$('nb_bez').focus();
 }
 
+// Loads the list of categories on the right sidebar
 function loadgkontoliste() {
 	new Ajax.Request('interface/gkontoliste.php?date='+$('datechs').value, {
 		method: 'get',
@@ -165,6 +169,8 @@ function loadgkontoliste() {
 	});
 }
 
+// Sends a new accounting entry to the interface to store into the database
+// Additional loads the lists of accounts, categories and accounting entries again
 function dobook() {
 	new Ajax.Request('interface/book.php?'+$('buchungform').serialize(), {
 		method: 'get',
@@ -178,6 +184,7 @@ function dobook() {
 	$('nb_bez').focus();
 }
 
+// Fills the current date into the form for the new accounting entry
 function suggestDate(rel) {
 	var heute = new Date();
 	var jahr = heute.getYear() + 1900;
@@ -188,10 +195,12 @@ function suggestDate(rel) {
 	$('nb_datum').value = tag+'.'+monat+'.'+jahr;
 }
 
+// Let the form for new accounts appear
 function shownewkto() {
 	Effect.Appear('newktodiv');
 }
 
+// Sends the data for the new account to the interface and reloads the interface
 function donewkto() {
 	new Ajax.Request('interface/newkto.php?'+$('nkform').serialize(), {
 		method: 'get',
@@ -202,6 +211,7 @@ function donewkto() {
 	initapp();
 }
 
+// Receives the months with accounting entries from the database
 function loadBDates() {
 	new Ajax.Request('interface/buchungsdaten.php', {
 		method: 'get',
@@ -234,22 +244,26 @@ function reselectPage() {
 	loadbuchungen($('nb_kto').value);
 }
 
+// Executes the accounting entry when pressing the enter-key
 function checkKeyBook(event) {
 	if(event.keyCode == 13)
 		dobook();
 	return false;
 }
 
+// Changes the date in the form for a new accounting entry when the user clicks into the calendar
 function DataClick(year, month, day) {
 	$('nb_datum').value = day+'.'+month+'.'+year;
 	hideKalender();
 	$('nb_bez').focus();
 }
 
+// Shows the calendar to pick a new date for the accounting entry
 function dateClick() {
 	$('kalender').style.display = 'block';
 }
 
+// Hides the calendar
 function hideKalender() {
 	$('kalender').style.display = 'none';
 }
