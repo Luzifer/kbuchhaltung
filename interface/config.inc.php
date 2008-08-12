@@ -20,7 +20,7 @@
 
 $CONFIG['database'] = "kbuchhaltung"; # Datenbank
 $CONFIG['dbuser'] = "root"; # Datenbank-Nutzer
-$CONFIG['dbpass'] = "t184udc5"; # Passwort für den Nutzer
+$CONFIG['dbpass'] = ""; # Passwort für den Nutzer
 $CONFIG['dbhost'] = "localhost"; # Datenbank-Host (Normalerweise 'localhost')
 
 ?>
