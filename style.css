@@ -124,3 +124,8 @@ body, td {
 	bottom: 70px;
 	display: none;
 }
+
+.inplaceeditor-form input {
+	width: 100%;
+	border: 1px solid black;
+}
