@@ -113,8 +113,7 @@ function loadbuchungen(ktoid) {
 	$('buchungform').enable();
 	new Ajax.Request('interface/buchungsliste.php?kto='+ktoid+'&date='+$('datechs').value, {
 		method: 'get',
-		onSuccess: processEntryData,
-		onException: function(a, b) { alert(b); }
+		onSuccess: processEntryData
 	});
 	
 	$('nb_bez').focus();
