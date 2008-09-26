@@ -1,3 +1,4 @@
 * Add localization support with configuration files
-* Add drag-and-drop support to the interface to move accounting entries
-  to other accounts
+* Add a method to delete entries
+* Add methods to edit accounts
+* Add graphical statistics
