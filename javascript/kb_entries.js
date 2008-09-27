@@ -44,6 +44,8 @@ function processEntryData(transport) {
 	htr.appendChild(htd3);
 	htr.appendChild(htd4);
 	table.appendChild(htr);
+	var tableid = table.identify();
+	$('buchungen').appendChild(table);
 	
 	var buchungen = txt.split('\n');
 	for(var i = 0; i < buchungen.length; i++) {
@@ -57,25 +59,15 @@ function processEntryData(transport) {
 		// Create date column
 		var td1 = new Element('td');
 		var td1s = new Element('span').update(fields[0]);
+		td1s.writeAttribute('id', 'id_'+fields[4]+';field_date')
 		td1.appendChild(td1s);
-		new Ajax.InPlaceEditor(td1s, 'interface/editbooking.php', { 
-			callback: function(form, value) { return 'bid=' + fields[4] + '&date='+escape(value); },
-			okControl: false,
-			cancelControl: false,
-			submitOnBlur: true
-		});
 		tr.appendChild(td1);
 		
 		// Create description column
 		var td2 = new Element('td');
 		var td2s = new Element('span').update(fields[1]);
+		td2s.writeAttribute('id', 'id_'+fields[4]+';field_desc')
 		td2.appendChild(td2s);
-		new Ajax.InPlaceEditor(td2s, 'interface/editbooking.php', { 
-			callback: function(form, value) { return 'bid=' + fields[4] + '&desc='+encodeURIComponent(value); },
-			okControl: false,
-			cancelControl: false,
-			submitOnBlur: true
-		});
 		tr.appendChild(td2);
 		
 		// Create gegenkonto column
@@ -85,13 +77,9 @@ function processEntryData(transport) {
 		// Create ammount column
 		var td4 = new Element('td');
 		var td4s = new Element('span').update(fields[3]);
+		td4s.writeAttribute('id', 'id_'+fields[4]+';field_amount')
 		td4.appendChild(td4s);
-		new Ajax.InPlaceEditor(td4s, 'interface/editbooking.php', { 
-			callback: function(form, value) { return 'bid=' + fields[4] + '&amount='+escape(value); },
-			okControl: false,
-			cancelControl: false,
-			submitOnBlur: true
-		});
+		
 		if(fields[3].indexOf('-') != -1) 
 			td4.addClassName('ausgabe');
 		else
@@ -100,9 +88,35 @@ function processEntryData(transport) {
 		tr.appendChild(td4);
 		
 		// Add row to table
-		table.appendChild(tr);
+		$(tableid).appendChild(tr);
+		
+		new Ajax.InPlaceEditor(td1s, 'interface/editbooking.php', { 
+			//callback: function(form, value) { return 'bid=' + fields[4] + '&date='+escape(value); },
+			okControl: false,
+			cancelControl: false,
+			submitOnBlur: true,
+			highlightcolor: '#FFFFFF',
+			onComplete: function(transport, element) { new Effect.Highlight(element, {startcolor: this.options.highlightcolor}); reloadSideData();}
+		});
+		
+		new Ajax.InPlaceEditor(td2s, 'interface/editbooking.php', { 
+			//callback: function(form, value) { return 'bid=' + fields[4] + '&desc='+encodeURIComponent(value); },
+			okControl: false,
+			cancelControl: false,
+			submitOnBlur: true,
+			highlightcolor: '#FFFFFF',
+			onComplete: function(transport, element) { new Effect.Highlight(element, {startcolor: this.options.highlightcolor}); reloadSideData();}
+		});
+		
+		new Ajax.InPlaceEditor(td4s, 'interface/editbooking.php', { 
+			//callback: function(form, value) { return 'bid=' + fields[4] + '&amount='+escape(value); },
+			okControl: false,
+			cancelControl: false,
+			submitOnBlur: true,
+			highlightcolor: '#FFFFFF',
+			onComplete: function(transport, element) { new Effect.Highlight(element, {startcolor: this.options.highlightcolor}); reloadSideData();}
+		});
 	}
-	$('buchungen').appendChild(table);
 }
 
 // Function to load the accounting entries of the given account
@@ -113,7 +127,8 @@ function loadbuchungen(ktoid) {
 	$('buchungform').enable();
 	new Ajax.Request('interface/buchungsliste.php?kto='+ktoid+'&date='+$('datechs').value, {
 		method: 'get',
-		onSuccess: processEntryData
+		onSuccess: processEntryData,
+		onException: function(a, b) { alert(b); }
 	});
 	
 	$('nb_bez').focus();

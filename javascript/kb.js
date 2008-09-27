@@ -36,8 +36,12 @@ function dobook() {
 		method: 'get',
 		asynchronous: false
 	});
-	$('buchungform').reset();
+	reloadSideData();
 	loadbuchungen($('nb_kto').value);
+}
+
+function reloadSideData() {
+	$('buchungform').reset();
 	loadkontoliste();
 	loadgkontoliste();
 	suggestDate();

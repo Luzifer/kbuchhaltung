@@ -18,13 +18,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+//value=Lebensmittel&editorId=id_366%3Bfield_desc
+
 include_once("mysql.php");
 
-$bid = $_POST['bid'];
+$bidtmp = split(';', urldecode($_POST['editorId']));
+$bidtmp = split('_', $bidtmp[0]);
+$bid = $bidtmp[1];
 
-if($_POST['date']) {
+if(strpos($_POST['editorId'], 'field_date') !== false) {
 	
-	$val = urldecode($_POST['date']);
+	$val = urldecode($_POST['value']);
 	
 	if(strpos($val, '.') !== false) {
 		$dp = explode('.', $val);
@@ -34,15 +38,15 @@ if($_POST['date']) {
 	$sql = "UPDATE buchungen SET datum = '$val' WHERE id = $bid";
 	$sql2 = "SELECT DATE_FORMAT(datum, '%d.%m.%Y') FROM buchungen WHERE id = $bid";
 	
-} else if ($_POST['desc']) {
+} else if (strpos($_POST['editorId'], 'field_desc') !== false) {
 	
-	$val = urldecode($_POST['desc']);
+	$val = urldecode($_POST['value']);
 	$sql = "UPDATE buchungen SET bez = '$val' WHERE id = $bid";
 	$sql2 = "SELECT bez FROM buchungen WHERE id = $bid";
 	
-} else if ($_POST['amount']) {
+} else if (strpos($_POST['editorId'], 'field_amount') !== false) {
 	
-	$val = urldecode($_POST['amount']);
+	$val = urldecode($_POST['value']);
 	$val = str_replace(',', '.', $val);
 	$sql = "UPDATE buchungen SET betrag = '$val' WHERE id = $bid";
 	$sql2 = "SELECT REPLACE(REPLACE(REPLACE(FORMAT(betrag,2),'.', 'ß'), ',', '.'), 'ß', ',') FROM buchungen WHERE id = $bid";
