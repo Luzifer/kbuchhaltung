@@ -33,7 +33,17 @@ body, td {
 	top:30px;
 	border-right:1px dashed #999;
 	width:150px;
-	height: 738px;
+	height: 688px;
+}
+
+#actionbox {
+	position: absolute;
+	left: 0px;
+	top: 718px;
+	border-top: 1px dashed #999;
+	border-right:1px dashed #999;
+	width: 150px;
+	height: 50px;
 }
 
 #gkontenliste {
@@ -128,4 +138,13 @@ body, td {
 .inplaceeditor-form input {
 	width: 100%;
 	border: 1px solid black;
+}
+
+.guv_ueberschrift {
+	font-weight: bold;
+	font-size: 10pt;
+}
+
+.guv_sumline {
+	border-top: 1px solid black;
 }
