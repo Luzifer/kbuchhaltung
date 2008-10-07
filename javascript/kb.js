@@ -37,7 +37,8 @@ function dobook() {
 		asynchronous: false
 	});
 	reloadSideData();
-	loadbuchungen($('nb_kto').value);
+	//loadbuchungen($('nb_kto').value);
+	loadBDates();
 }
 
 function reloadSideData() {
@@ -82,9 +83,11 @@ function loadBDates() {
 		asynchronous: false,
 		onSuccess: function(transport) {
 			
-			for(var i = 0; i < $('datechs').options.length; i++) {
-				$('datechs').options[i] = null;
-			}
+			// Removed because not working code
+			//for(var i = 0; i < $('datechs').options.length; i++) {
+			//	$('datechs').options[i] = null;
+			//}
+			$('datechs').options.length = 0;
 			
 			var txt = transport.responseText;
 			var lines = txt.split('\n');
