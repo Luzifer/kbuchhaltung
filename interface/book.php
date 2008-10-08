@@ -27,7 +27,7 @@ if(strpos($datum, '.') !== false) {
 	$datum = $dp[2]."-".$dp[1]."-".$dp[0];
 }
 
-$bez = urldecode($_GET['nb_bez']);
+$bez = $_GET['nb_bez'];
 $gkonto = $_GET['nb_gkonto'];
 $betrag = urldecode(str_replace(',', '.', $_GET['nb_betrag']));
 $konto = $_GET['nb_kto'];
