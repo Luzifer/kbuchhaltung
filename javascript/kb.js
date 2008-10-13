@@ -32,13 +32,16 @@ function initapp() {
 // Sends a new accounting entry to the interface to store into the database
 // Additional loads the lists of accounts, categories and accounting entries again
 function dobook() {
-	new Ajax.Request('interface/book.php?'+$('buchungform').serialize(), {
-		method: 'get',
-		asynchronous: false
-	});
-	reloadSideData();
-	//loadbuchungen($('nb_kto').value);
-	loadBDates();
+	if(checkValidDate($('nb_datum').value)) {
+		new Ajax.Request('interface/book.php?'+$('buchungform').serialize(), {
+			method: 'get',
+			asynchronous: false
+		});
+		reloadSideData();
+		loadBDates();
+	} else {
+		alert("Attention: The Date you've entered is invalid.\nThe entry was not submitted!");
+	}
 }
 
 function reloadSideData() {
@@ -174,4 +177,30 @@ function number_format (number, decimals, dec_point, thousands_sep)
   }
   
   return sign + integer + fractional + exponent;
+}
+
+function checkValidDate(date) {
+	
+	var dteDate;
+	var day;
+	var month;
+	var year;
+	
+	if(date.indexOf('.') > -1) {
+		var tmp = date.split('.');
+		day = tmp[0];
+		month = tmp[1];
+		year = tmp[2];
+	} else if(date.indexOf('-') > -1) {
+		var tmp = date.split('-');
+		day = tmp[2];
+		month = tmp[1];
+		year = tmp[0];
+	} else return false;
+	
+	month = parseInt(month) - 1; // Javascript has month 0-11 instead of 1-12... 
+	
+	dteDate = new Date(year, month, day);
+
+	return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
 }
