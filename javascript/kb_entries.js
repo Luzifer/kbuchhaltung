@@ -31,7 +31,6 @@ function processEntryData(transport) {
 	htd1.style.width = '120px';
 	htd1.addClassName('bold');
 	var htd2 = new Element('td').update('Bezeichnung');
-	htd2.style.width = '354px';
 	htd2.addClassName('bold');
 	var htd3 = new Element('td').update('Gegenkonto');
 	htd3.style.width = '170px';
