@@ -22,6 +22,7 @@
 // Function to initialize the components and fill the account lists
 function initapp() {
 	SetNewIFPositions();
+	Event.observe(window, 'resize', SetNewIFPositions);
 	$('buchungform').disable();
 	ShowCurrentCalendar('kalender', 'DataClick');
 	loadkontoliste();
