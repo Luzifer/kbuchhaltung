@@ -1,7 +1,9 @@
 This application is BETA software at the moment. It should work but there is no
 warranty for it. If you want to use it feel free to do so and please report any
-bugs or feature requests to the author. You might participate at the
+bugs or feature requests to the bug tracker. You might participate at the
 development if you like to.
+
+The bug tracker is available at this URL: http://bugs.knut.me/
 
 === INSTALLATION ===
 1. Copy the files onto a webserver with PHP and MySQL
