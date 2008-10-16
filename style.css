@@ -1,9 +1,17 @@
 @charset "UTF-8";
 /* CSS Document */
 
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
 body, td {
 	font-size: 9pt;
+	height: 100%;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
+	padding: 0px;
+	margin: 0px;
 }
 
 #maindiv {
@@ -39,7 +47,7 @@ body, td {
 #actionbox {
 	position: absolute;
 	left: 0px;
-	top: 718px;
+	bottom: 0px;
 	border-top: 1px dashed #999;
 	border-right:1px dashed #999;
 	width: 150px;
@@ -76,7 +84,7 @@ body, td {
 
 #datechooser {
 	position:absolute;
-	left:900px;
+	right:0px;
 	top:0px;
 	height:30px;
 	width:124px;
@@ -133,6 +141,17 @@ body, td {
 	left: 150px;
 	bottom: 70px;
 	display: none;
+}
+
+#cpr {
+	position: absolute;
+	left: 2px;
+	bottom: 2px;
+}
+
+#cpr a:active, #cpr a:link, #cpr a:visited, #cpr {
+	color: #666; 
+	font-size: 0.75em;
 }
 
 .inplaceeditor-form input {

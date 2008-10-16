@@ -12,6 +12,7 @@
 <script language="javascript" src="javascript/kb_entries.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/kb_kontoliste.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/kb_guv.js" type="text/javascript"></script>
+<script language="javascript" src="javascript/interface_builder.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/kb.js" type="text/javascript"></script>
 </head>
 
@@ -29,10 +30,10 @@
       	
         <form id="buchungform">
         Neue Buchung:<br />
-      	<table width="100%">
+      	<table width="100%" cellspacing="2">
         	<tr>
             	<td style="width:120px;"><input type="text" style="width:100%; border: 1px solid black;" name="nb_datum" id="nb_datum" onclick="dateClick();" /></td>
-                <td style="width:354px;"><input type="text" style="width:100%; border: 1px solid black;" name="nb_bez" id="nb_bez" onfocus="hideKalender();" /></td>
+                <td><input type="text" style="width:100%; border: 1px solid black;" name="nb_bez" id="nb_bez" onfocus="hideKalender();" /></td>
                 <td style="width:170px;"><select style="width:100%; border: 1px solid black;" id="nb_gkonto" name="nb_gkonto" onfocus="hideKalender();"></select></td>
                 <td style="width:80px;"><input type="text" style="width:100%; border: 1px solid black;" name="nb_betrag" id="nb_betrag" onfocus="hideKalender();" onkeyup="checkKeyBook(event);" /></td>
             </tr>
@@ -40,6 +41,7 @@
         <span style="position:absolute;right:5px;bottom:5px;" class="clickable" onclick="dobook();">Eintragen</span>
         <input type="hidden" name="nb_kto" id="nb_kto" />
         </form>
+		<span id="cpr"><a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">KBuchhaltung 0.4pre</a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</span>
       </div>
       <div id="datechooser">
       	<select id="datechs" onChange="reselectPage();">
@@ -57,7 +59,6 @@
       </div>
       <div id="kalender" class="kalender"></div>
     </div>
-	<div style="text-align: center; color: #ccc; font-size: 9pt;"><a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">KBuchhaltung 0.4pre</a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</div>
     <script language="javascript" type="text/javascript">
 		initapp();
 	</script>
