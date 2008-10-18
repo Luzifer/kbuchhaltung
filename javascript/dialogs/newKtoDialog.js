@@ -37,8 +37,7 @@ function CreateNewKtoDialog() {
 	typein1.setStyle({
 		position: 'absolute',
 		left: '5px',
-		top: '70px',
-		width: '335px'
+		top: '70px'
 	});
 	dia.AddElement(typein1);
 	
@@ -59,8 +58,7 @@ function CreateNewKtoDialog() {
 	typein2.setStyle({
 		position: 'absolute',
 		left: '100px',
-		top: '70px',
-		width: '335px'
+		top: '70px'
 	});
 	dia.AddElement(typein2);
 	
@@ -80,8 +78,7 @@ function CreateNewKtoDialog() {
 	typein3.setStyle({
 		position: 'absolute',
 		left: '200px',
-		top: '70px',
-		width: '335px'
+		top: '70px'
 	});
 	dia.AddElement(typein3);
 	
