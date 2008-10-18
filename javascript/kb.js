@@ -19,6 +19,8 @@
 
 // JavaScript Document
 
+var activedia = null;
+
 // Function to initialize the components and fill the account lists
 function initapp() {
 	SetNewIFPositions();
@@ -67,17 +69,17 @@ function suggestDate(rel) {
 
 // Let the form for new accounts appear
 function shownewkto() {
-	Effect.Appear('newktodiv');
+	activedia = CreateNewKtoDialog();
+	activedia.Show();
 }
 
 // Sends the data for the new account to the interface and reloads the interface
 function donewkto() {
-	new Ajax.Request('interface/newkto.php?'+$('nkform').serialize(), {
+	new Ajax.Request('interface/newkto.php?'+activedia.GetValues(), {
 		method: 'get',
 		asynchronous: false
 	});
-	Effect.Fade('newktodiv');
-	$('nkform').reset();
+	activedia.Hide();
 	initapp();
 }
 
