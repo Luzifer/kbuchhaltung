@@ -38,10 +38,14 @@ function processEntryData(transport) {
 	var htd4 = new Element('td').update('Betrag');
 	htd4.style.width = '80px';
 	htd4.addClassName('bold');
+	var htd5 = new Element('td').update('');
+	htd5.style.width = '5px';
+	htd5.addClassName('bold');
 	htr.appendChild(htd1);
 	htr.appendChild(htd2);
 	htr.appendChild(htd3);
 	htr.appendChild(htd4);
+	htr.appendChild(htd5);
 	table.appendChild(htr);
 	var tableid = table.identify();
 	$('buchungen').appendChild(table);
@@ -85,6 +89,10 @@ function processEntryData(transport) {
 			td4.addClassName('einnahme');
 		td4.addClassName('ktosumme');
 		tr.appendChild(td4);
+		
+		var td5 = new Element('td').update('<a href="javascript:delEntry('+fields[4]+');" title="Buchung l&ouml;schen">x</a>');
+		td5.addClassName('deletebox');
+		tr.appendChild(td5);
 		
 		// Add row to table
 		$(tableid).appendChild(tr);

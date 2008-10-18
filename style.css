@@ -168,3 +168,13 @@ body, td {
 .guv_sumline {
 	border-top: 1px solid black;
 }
+
+.deletebox {
+	color: #999;
+	cursor: pointer;
+}
+
+.deletebox a:link, .deletebox a:active, .deletebox a:visited, .deletebox a:hover {
+	color: #999;
+	text-decoration: none;
+}

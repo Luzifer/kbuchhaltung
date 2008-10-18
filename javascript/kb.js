@@ -83,6 +83,21 @@ function donewkto() {
 	initapp();
 }
 
+function delEntry(entry) {
+	activedia = CreateDelEntryDialog(entry);
+	activedia.Show();
+}
+
+function dodelentry() {
+	new Ajax.Request('interface/delentry.php?'+activedia.GetValues(), {
+		method: 'get',
+		asynchronous: false
+	});
+	activedia.Hide();
+	reloadSideData();
+	loadBDates();
+}
+
 // Receives the months with accounting entries from the database
 function loadBDates() {
 	new Ajax.Request('interface/buchungsdaten.php', {
