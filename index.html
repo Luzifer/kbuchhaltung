@@ -13,6 +13,7 @@
 <script language="javascript" src="javascript/kb_kontoliste.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/kb_guv.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/interface_builder.js" type="text/javascript"></script>
+<script language="javascript" src="javascript/kb_dialog.js" type="text/javascript"></script>
 <script language="javascript" src="javascript/kb.js" type="text/javascript"></script>
 </head>
 
@@ -47,15 +48,6 @@
       	<select id="datechs" onChange="reselectPage();">
 			<option value="">Alle</option>
 		</select>
-      </div>
-      <div id="newktodiv" style="display:none;">
-          <form action="#" id="nkform">
-            <table>
-                <tr><td>Konto:</td><td><input style="border: 1px solid black;" type="text" name="nk_kto" /></td></tr>
-                <tr><td>Typ:</td><td><input type="radio" name="nk_typ" value="g" />Guthaben <input type="radio" value="a" name="nk_typ" checked="checked" />Ausgaben <input type="radio" name="nk_typ" value="e" />Einnahmen</td></tr>
-                <tr><td colspan="2" class="clickable" onclick="donewkto();">Anlegen</td></tr>
-            </table>
-          </form>
       </div>
       <div id="kalender" class="kalender"></div>
     </div>
