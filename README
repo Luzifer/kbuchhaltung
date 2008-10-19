@@ -5,6 +5,17 @@ development if you like to.
 
 The bug tracker is available at this URL: http://bugs.knut.me/
 
+=== Requirements ===
+Server:
+- PHP4, better PHP5 (Tested with 5.2.3-1ubuntu6.3 and 5.2.6-pl7-gentoo)
+- MySQL4, better MySQL5 (Tested with 5.0.45-1ubuntu3.3 and 5.0.60-r1)
+
+Client:
+- Mozilla Firefox >= 1.5 (Tested with 3.0 - 3.0.3)
+- Microsoft Internet Explorer >= 6.0 (Tested with 7)
+- Apple Safari >= 2.0 (Tested with 3.1.2)
+- Opera >= 9.25 (Tested with 9.60)
+
 === INSTALLATION ===
 1. Copy the files onto a webserver with PHP and MySQL
 2. Create a User, Password and Database at the MySQL service
