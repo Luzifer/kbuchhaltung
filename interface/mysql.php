@@ -20,8 +20,8 @@
 
 include_once('config.inc.php');
 
-mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']);
-mysql_select_db($CONFIG['database']);
+mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']) == true ? define("DBG_MYSQL_CONN", true) : define("DBG_MYSQL_CONN", false);
+mysql_select_db($CONFIG['database']) == true ? define("DBG_MYSQL_DBSEL", true) : define("DBG_MYSQL_DBSEL", false);
 
 function EchoResult2CSV($result) {
 	while($row = mysql_fetch_row($result)) {
