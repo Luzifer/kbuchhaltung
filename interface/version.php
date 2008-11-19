@@ -18,21 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('config.inc.php');
-include_once('version.php');
-
-mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']) == true ? define("DBG_MYSQL_CONN", true) : define("DBG_MYSQL_CONN", false);
-mysql_select_db($CONFIG['database']) == true ? define("DBG_MYSQL_DBSEL", true) : define("DBG_MYSQL_DBSEL", false);
-
-function EchoResult2CSV($result) {
-	while($row = mysql_fetch_row($result)) {
-		for($i = 0; $i < count($row); $i++) {
-			echo $row[$i];
-			if($i < count($row) - 1)
-				echo ";";
-		}
-		echo "\n";
-	}
-}
+define("APPVERSION", "0.5");
 
 ?>

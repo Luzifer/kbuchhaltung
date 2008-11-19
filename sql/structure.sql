@@ -15,3 +15,9 @@ CREATE TABLE IF NOT EXISTS `konten` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `bez` (`bez`)
 );
+
+CREATE TABLE IF NOT EXISTS `appsettings` (
+	`key` varchar(50) NOT NULL,
+	`value` varchar(255) NOT NULL,
+	UNIQUE KEY `key` (`key`)
+);

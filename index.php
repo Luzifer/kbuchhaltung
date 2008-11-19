@@ -1,3 +1,6 @@
+<?
+include_once('interface/version.php');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -44,7 +47,7 @@
         <span style="position:absolute;right:5px;bottom:5px;" class="clickable" onclick="dobook();">Eintragen</span>
         <input type="hidden" name="nb_kto" id="nb_kto" />
         </form>
-		<span id="cpr"><a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">KBuchhaltung 0.5</a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</span>
+		<span id="cpr"><a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">KBuchhaltung <?=APPVERSION; ?></a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</span>
       </div>
       <div id="datechooser">
       	<select id="datechs" onChange="reselectPage();">

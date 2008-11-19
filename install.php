@@ -20,8 +20,8 @@
 
 include_once('interface/mysql.php');
 
-define("MD5_INITIAL", "54020e9100468476d5295cd13ce6b522");
-define("MD5_STRUCT", "c50af0fb67b7a287562ead1494822400");
+define("MD5_INITIAL", "784d29eb419ce1351237793e3e1abb21");
+define("MD5_STRUCT", "7c5936c222f49c78baccad3b9f578f17");
 
 // Check validity of SQL files to prevent changes on this files without
 // some knowledge of the scripts used to access the database
@@ -59,6 +59,9 @@ foreach(explode(';', file_get_contents('sql/initialdata.sql')) as $command) {
 	if(!mysql_query($command))
 		die("An error occured while inserting the initial data. Please research the problem manually:<br />".mysql_error());
 }
+
+// Set the version just installed into the database
+mysql_query("INSERT INTO appsettings VALUES ('version', '".APPVERSION."')");
 
 // If we get here we are happy and pass back to the interface which
 // should stop sending the user to the set-up again because there
