@@ -70,6 +70,7 @@ function processGKontoListe(transport) {
 function loadgkontoliste() {
 	new Ajax.Request('interface/gkontoliste.php?date='+$('datechs').value, {
 		method: 'get',
+		asynchronous: false,
 		onSuccess: processGKontoListe
 	});
 }

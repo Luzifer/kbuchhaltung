@@ -28,10 +28,10 @@ function initapp() {
 	Event.observe(window, 'resize', SetNewIFPositions);
 	$('buchungform').disable();
 	ShowCurrentCalendar('kalender', 'DataClick');
+	loadBDates();
 	loadkontoliste();
 	loadgkontoliste();
 	suggestDate();
-	loadBDates();
 }
 
 // Sends a new accounting entry to the interface to store into the database
