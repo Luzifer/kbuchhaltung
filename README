@@ -14,14 +14,20 @@ Client:
 - Mozilla Firefox >= 1.5 (Tested with 3.0 - 3.0.3)
 - Microsoft Internet Explorer >= 6.0 (Tested with 7)
 - Apple Safari >= 2.0 (Tested with 3.1.2)
-- Opera >= 9.25 (Tested with 9.60)
+- Opera >= 9.25 (Tested with 9.60 - 9.62)
 
 === INSTALLATION ===
 1. Copy the files onto a webserver with PHP and MySQL
 2. Create a User, Password and Database at the MySQL service
-3. Execute the structure.sql file in this database
-4. Edit the initialdata.sql file as you need and execute it too
-5. Change the config.inc.php file in the interface directory
+3. Change the config.inc.php file in the interface directory
+4. Access the application. It will call an installer which should
+   install the table structure and some initial data. If you see
+   no exception and return to the application showing some empty
+   accounts everything went well and you can use the application.
+   Otherwise you will need to follow the hints into the exceptions
+   to get this application working.
+   Please remember: The installer is still very basic and is only
+   intended to help you with setting up the database structure.
 
 === SECURITY ===
 Please pay attention while using this application. You provide your data free
