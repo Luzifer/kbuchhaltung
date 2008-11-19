@@ -23,6 +23,7 @@ var activedia = null;
 
 // Function to initialize the components and fill the account lists
 function initapp() {
+	CheckAppInstalled();
 	SetNewIFPositions();
 	Event.observe(window, 'resize', SetNewIFPositions);
 	$('buchungform').disable();
@@ -46,6 +47,17 @@ function dobook() {
 	} else {
 		alert("Attention: The Date you've entered is invalid.\nThe entry was not submitted!");
 	}
+}
+
+function CheckAppInstalled() {
+	new Ajax.Request('interface/checkapp.php', {
+		method: 'GET',
+		onSuccess: function(transport) {
+			if(transport.responseText == 'FAIL') {
+				window.location.href = 'install.php';
+			}
+		}
+	});
 }
 
 function reloadSideData() {
