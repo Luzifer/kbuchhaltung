@@ -18,10 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//value=Lebensmittel&editorId=id_366%3Bfield_desc
-
-include_once("mysql.php");
-
 $bidtmp = split(';', urldecode($_POST['editorId']));
 $bidtmp = split('_', $bidtmp[0]);
 $bid = $bidtmp[1];
@@ -53,10 +49,22 @@ if(strpos($_POST['editorId'], 'field_date') !== false) {
 	
 }
 
-if(!mysql_query($sql))
+include_once('config.inc.php');
+include_once('DatabaseFactory.class.php');
+
+$dbFactory = new DatabaseFactory();
+$connector = $dbFactory->GetDatabaseConnector($CONFIG);
+
+$connector->Connect($CONFIG);
+$firstres = $connector->Query($sql);
+if($firstres) {
+	$connector->Query($sql2);
+	$secondres = $connector->FetchRow();
+}
+$connector->Disconnect();
+
+if(!$firstres)
 	die('ERROR');
-	
-$res = mysql_fetch_row(mysql_query($sql2));
-echo $res[0];
+echo $secondres[0];
 
 ?>

@@ -18,7 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$CONFIG['database'] = "kbuchhaltung"; # Datenbank
+$CONFIG['dbtype'] = "MySQL";
+$CONFIG['dbname'] = "kbuchhaltung"; # Datenbank
 $CONFIG['dbuser'] = "root"; # Datenbank-Nutzer
 $CONFIG['dbpass'] = ""; # Passwort für den Nutzer
 $CONFIG['dbhost'] = "localhost"; # Datenbank-Host (Normalerweise 'localhost')

@@ -18,14 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once("mysql.php");
-
 $kto = $_GET['kto'];
 $date = $_GET['date'];
 
-$result = mysql_query("SELECT DATE_FORMAT(b.datum, '%d.%m.%Y'), b.bez, gk.bez, REPLACE(REPLACE(REPLACE(FORMAT(b.betrag,2),'.', 'ß'), ',', '.'), 'ß', ','), b.id FROM buchungen b INNER JOIN konten gk ON gk.id = b.gkonto WHERE b.konto = $kto AND b.datum LIKE '$date%' ORDER BY b.datum DESC, b.id DESC");
+$sql = "SELECT DATE_FORMAT(b.datum, '%d.%m.%Y'), b.bez, gk.bez, REPLACE(REPLACE(REPLACE(FORMAT(b.betrag,2),'.', 'ß'), ',', '.'), 'ß', ','), b.id FROM buchungen b INNER JOIN konten gk ON gk.id = b.gkonto WHERE b.konto = $kto AND b.datum LIKE '$date%' ORDER BY b.datum DESC, b.id DESC";
+
+include_once('config.inc.php');
+include_once('DatabaseFactory.class.php');
+
+$dbFactory = new DatabaseFactory();
+$connector = $dbFactory->GetDatabaseConnector($CONFIG);
+
+$connector->Connect($CONFIG);
+$connector->Query($sql);
+$csv = $connector->SerializeResultToCSV();
+$connector->Disconnect();
 
 header('Content-Type: text/plain');
-EchoResult2CSV($result);
+echo $csv;
 
 ?>

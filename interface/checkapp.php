@@ -18,13 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('mysql.php');
+$sql = 'SELECT COUNT(1) FROM buchungen';
+	
+include_once('config.inc.php');
+include_once('DatabaseFactory.class.php');
+
+$dbFactory = new DatabaseFactory();
+$connector = $dbFactory->GetDatabaseConnector($CONFIG);
+
+$connector->Connect($CONFIG);
+$result = $connector->Query($sql);
+$connector->Disconnect();
 
 header('Content-Type: text/plain');
-
-if(!mysql_query('SELECT COUNT(1) FROM buchungen'))
-	die("FAIL");
+if($result) 
+	echo 'OK';
 else
-	die("OK");
+	echo 'FAIL';
 
 ?>

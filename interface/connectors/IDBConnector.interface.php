@@ -18,23 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$date = $_GET['date'];
-
-$sql = "SELECT k.bez,k.typ,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) * -1 FROM buchungen b WHERE b.gkonto = k.id AND b.datum LIKE '$date%'),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\", k.id FROM konten k WHERE k.typ <> 'g' ORDER BY k.typ DESC, k.bez";
-
-
-include_once('config.inc.php');
-include_once('DatabaseFactory.class.php');
-
-$dbFactory = new DatabaseFactory();
-$connector = $dbFactory->GetDatabaseConnector($CONFIG);
-
-$connector->Connect($CONFIG);
-$connector->Query($sql);
-$csv = $connector->SerializeResultToCSV();
-$connector->Disconnect();
-
-header('Content-Type: text/plain');
-echo $csv;
+interface IDBConnector {
+	public function Connect($credentials);
+	public function Disconnect();
+	public function Query($queryString);
+	public function FetchAssoc();
+	public function FetchRow();
+	public function SerializeResultToCSV();
+	public function IsConnected();
+	public function HasError();
+	public function LastError();
+}
 
 ?>

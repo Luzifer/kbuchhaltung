@@ -18,12 +18,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('mysql.php');
-
 $kto = $_GET['nk_kto'];
 $typ = $_GET['nk_typ'];
 
-mysql_query("INSERT INTO konten VALUES (NULL, '$kto', '$typ')");
+$sql = "INSERT INTO konten VALUES (NULL, '$kto', '$typ')";
+
+include_once('config.inc.php');
+include_once('DatabaseFactory.class.php');
+
+$dbFactory = new DatabaseFactory();
+$connector = $dbFactory->GetDatabaseConnector($CONFIG);
+
+$connector->Connect($CONFIG);
+$connector->Query($sql);
+$connector->Disconnect();
 
 ?>
 

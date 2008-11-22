@@ -18,8 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include_once('mysql.php');
-
 $datum = $_GET['nb_datum'];
 
 if(strpos($datum, '.') !== false) {
@@ -33,7 +31,15 @@ $betrag = urldecode(str_replace(',', '.', $_GET['nb_betrag']));
 $konto = $_GET['nb_kto'];
 
 $sql = "INSERT INTO buchungen VALUES (NULL, '$bez', $betrag, $konto, $gkonto, '$datum')";
-file_put_contents('sql.txt', $sql);
-mysql_query($sql);
+
+include_once('config.inc.php');
+include_once('DatabaseFactory.class.php');
+
+$dbFactory = new DatabaseFactory();
+$connector = $dbFactory->GetDatabaseConnector($CONFIG);
+
+$connector->Connect($CONFIG);
+$connector->Query($sql);
+$connector->Disconnect();
 
 ?>
