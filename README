@@ -7,7 +7,7 @@ The bug tracker is available at this URL: http://bugs.knut.me/
 
 === Requirements ===
 Server:
-- PHP4, better PHP5 (Tested with 5.2.3-1ubuntu6.3 and 5.2.6-pl7-gentoo)
+- PHP5 (Tested with 5.2.3-1ubuntu6.3 and 5.2.6-pl7-gentoo)
 - MySQL4, better MySQL5 (Tested with 5.0.45-1ubuntu3.3 and 5.0.60-r1)
 
 Client:
@@ -28,6 +28,16 @@ Client:
    to get this application working.
    Please remember: The installer is still very basic and is only
    intended to help you with setting up the database structure.
+
+=== UPDATE ===
+pre0.5 -> 0.5:
+   The format of the configuration file has changed in this version and
+   old configuration files will not longer work. You have to modify the
+   one from the repository to your needs.
+   Also the database structure has changed. You have to create a additional
+   table called 'appsettings' and insert a value by yourself. The structure
+   is included into the file 'sql/structure.sql'. The key-value-pair which
+   has to be inserted is 'version' => '0.5'.
 
 === SECURITY ===
 Please pay attention while using this application. You provide your data free
