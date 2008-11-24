@@ -7,7 +7,7 @@ The bug tracker is available at this URL: http://bugs.knut.me/
 
 === Requirements ===
 Server:
-- PHP5 (Tested with 5.2.3-1ubuntu6.3 and 5.2.6-pl7-gentoo)
+- PHP4, PHP5 (Tested with 5.2.3-1ubuntu6.3 and 5.2.6-pl7-gentoo)
 - MySQL4, better MySQL5 (Tested with 5.0.45-1ubuntu3.3 and 5.0.60-r1)
 
 Client:
