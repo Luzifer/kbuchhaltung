@@ -18,23 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+include_once('mysql.php');
+
 $date = $_GET['date'];
 
-$sql = "SELECT k.bez,k.typ,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) * -1 FROM buchungen b WHERE b.gkonto = k.id AND b.datum LIKE '$date%'),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\", k.id FROM konten k WHERE k.typ <> 'g' ORDER BY k.typ DESC, k.bez";
+$result = mysql_query("SELECT k.bez,k.typ,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) * -1 FROM buchungen b WHERE b.gkonto = k.id AND b.datum LIKE '$date%'),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\", k.id FROM konten k WHERE k.typ <> 'g' ORDER BY k.typ DESC, k.bez");
 
-
-include_once('config.inc.php');
-include_once('DatabaseFactory.class.php');
-
-$dbFactory = new DatabaseFactory();
-$connector = $dbFactory->GetDatabaseConnector($CONFIG);
-
-$connector->Connect($CONFIG);
-$connector->Query($sql);
-$csv = $connector->SerializeResultToCSV();
-$connector->Disconnect();
 
 header('Content-Type: text/plain');
-echo $csv;
+EchoResult2CSV($result);
 
 ?>

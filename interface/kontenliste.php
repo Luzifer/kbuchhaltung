@@ -18,20 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$sql = "SELECT k.id,k.bez,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) FROM buchungen b WHERE b.konto = k.id),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\" FROM konten k WHERE k.typ = 'g' ORDER BY k.bez";
+include_once("mysql.php");
 
-include_once('config.inc.php');
-include_once('DatabaseFactory.class.php');
-
-$dbFactory = new DatabaseFactory();
-$connector = $dbFactory->GetDatabaseConnector($CONFIG);
-
-$connector->Connect($CONFIG);
-$connector->Query($sql);
-$csv = $connector->SerializeResultToCSV();
-$connector->Disconnect();
+$result = mysql_query("SELECT k.id,k.bez,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) FROM buchungen b WHERE b.konto = k.id),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\" FROM konten k WHERE k.typ = 'g' ORDER BY k.bez");
 
 header('Content-Type: text/plain');
-echo $csv;
+
+EchoResult2CSV($result);
 
 ?>

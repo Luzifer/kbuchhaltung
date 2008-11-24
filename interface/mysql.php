@@ -18,16 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-class DatabaseFactory {
-	public function GetDatabaseConnector($config) {
-		switch($config['dbtype']) {
-			case 'MySQL':
-				include_once('connectors/DB_MySQL.class.php');
-				$this->connector = new DB_MySQL();
+include_once('config.inc.php');
+include_once('version.php');
+
+mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']) == true ? define("DBG_MYSQL_CONN", true) : define("DBG_MYSQL_CONN", false);
+mysql_select_db($CONFIG['database']) == true ? define("DBG_MYSQL_DBSEL", true) : define("DBG_MYSQL_DBSEL", false);
+
+function EchoResult2CSV($result) {
+	while($row = mysql_fetch_row($result)) {
+		for($i = 0; $i < count($row); $i++) {
+			echo $row[$i];
+			if($i < count($row) - 1)
+				echo ";";
 		}
-		
-		return $this->connector;
-	} 
+		echo "\n";
+	}
 }
 
 ?>
