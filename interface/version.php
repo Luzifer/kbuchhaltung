@@ -19,5 +19,6 @@
  */
 
 define("APPVERSION", "0.5pre");
+define("APPURL", "http://github.com/Luzifer/kbuchhaltung/tree/master");
 
 ?>

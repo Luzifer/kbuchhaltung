@@ -47,7 +47,7 @@ include_once('interface/version.php');
         <span style="position:absolute;right:5px;bottom:5px;" class="clickable" onclick="dobook();">Eintragen</span>
         <input type="hidden" name="nb_kto" id="nb_kto" />
         </form>
-		<span id="cpr"><a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">KBuchhaltung <?=APPVERSION; ?></a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</span>
+		<span id="cpr"><a href="<?=APPURL; ?>" target="_blank">KBuchhaltung <?=APPVERSION; ?></a> (<a href="http://bugs.knut.me" target="_blank">BugTracker</a>) - Released under GNU General Public License</span>
       </div>
       <div id="datechooser">
       	<select id="datechs" onChange="reselectPage();">
