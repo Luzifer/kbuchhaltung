@@ -20,6 +20,9 @@
 // JavaScript Document
 
 var activedia = null;
+var STR_PAD_LEFT = 1;
+var STR_PAD_RIGHT = 2;
+var STR_PAD_BOTH = 3;
 
 // Function to initialize the components and fill the account lists
 function initapp() {
@@ -74,8 +77,8 @@ function suggestDate(rel) {
 	var jahr = heute.getYear() + 1900;
 	if(heute.getYear() > 2000)
 		jahr -= 1900;
-	var monat = heute.getMonth()+1;
-	var tag = heute.getDate();
+	var monat = pad((heute.getMonth()+1) + '', 2, '0', STR_PAD_LEFT);
+	var tag = pad(heute.getDate() + '', 2, '0', STR_PAD_LEFT);
 	$('nb_datum').value = tag+'.'+monat+'.'+jahr;
 }
 
@@ -234,4 +237,36 @@ function checkValidDate(date) {
 	dteDate = new Date(year, month, day);
 
 	return ((day==dteDate.getDate()) && (month==dteDate.getMonth()) && (year==dteDate.getFullYear()));
+}
+ 
+function pad(str, len, pad, dir) {
+ 
+	if (typeof(len) == "undefined") { var len = 0; }
+	if (typeof(pad) == "undefined") { var pad = ' '; }
+	if (typeof(dir) == "undefined") { var dir = STR_PAD_RIGHT; }
+ 
+	if (len + 1 >= str.length) {
+ 
+		switch (dir){
+ 
+			case STR_PAD_LEFT:
+				str = Array(len + 1 - str.length).join(pad) + str;
+			break;
+ 
+			case STR_PAD_BOTH:
+				var right = Math.ceil((padlen = len - str.length) / 2);
+				var left = padlen - right;
+				str = Array(left+1).join(pad) + str + Array(right+1).join(pad);
+			break;
+ 
+			default:
+				str = str + Array(len + 1 - str.length).join(pad);
+			break;
+ 
+		} // switch
+ 
+	}
+ 
+	return str;
+ 
 }
