@@ -8,18 +8,10 @@ include_once('interface/version.php');
 <link href="style.css" type="text/css" rel="stylesheet" />
 <link href="kalender.css" type="text/css" rel="stylesheet" />
 <title>KBuchhaltung</title>
-<script language="JavaScript" src="javascript/kalender.js" type="text/javascript"></script>
-<script language="JavaScript" src="javascript/prototype.js" type="text/javascript"></script>
-<script language="JavaScript" src="javascript/scriptaculous.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb_gkontoliste.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb_entries.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb_kontoliste.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb_guv.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/interface_builder.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb_dialog.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/dialogs/newKtoDialog.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/dialogs/delEntryDialog.js" type="text/javascript"></script>
-<script language="javascript" src="javascript/kb.js" type="text/javascript"></script>
+<script language="JavaScript" src="javascript/libraries/kalender.js" type="text/javascript"></script>
+<script language="JavaScript" src="javascript/libraries/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="javascript/libraries/scriptaculous.js" type="text/javascript"></script>
+<script language="javascript" src="interface/jscompressor.php" type="text/javascript"></script>
 </head>
 
 <body>
