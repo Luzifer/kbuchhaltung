@@ -31,13 +31,10 @@ Client:
 
 === UPDATE ===
 pre0.5 -> 0.5:
-   The format of the configuration file has changed in this version and
-   old configuration files will not longer work. You have to modify the
-   one from the repository to your needs.
-   Also the database structure has changed. You have to create a additional
-   table called 'appsettings' and insert a value by yourself. The structure
-   is included into the file 'sql/structure.sql'. The key-value-pair which
-   has to be inserted is 'version' => '0.5'.
+   You can update your old database layout calling the file
+   'update.php' in the root directory of the application. This should
+   update your database to the 0.5 version and you should be able to
+   use all the cool new features :)
 
 === SECURITY ===
 Please pay attention while using this application. You provide your data free

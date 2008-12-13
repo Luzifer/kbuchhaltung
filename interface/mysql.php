@@ -35,4 +35,15 @@ function EchoResult2CSV($result) {
 	}
 }
 
+function GetDatabaseVersion() {
+	if(!DBG_MYSQL_DBSEL) return null;
+	
+	$res = @mysql_query("SELECT value FROM appsettings WHERE `key` = 'version'");
+	
+	if(@mysql_num_rows($res) < 1) return "0.4";
+	
+	$r = mysql_fetch_assoc($res);
+	return $r['value'];
+}
+
 ?>

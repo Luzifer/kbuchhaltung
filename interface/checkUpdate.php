@@ -20,7 +20,7 @@
 
 include('version.php');
 
-$official_version = file_get_contents('http://www.kbuchhaltung.de/appstate/version.txt');
+$official_version = trim(file_get_contents('http://www.kbuchhaltung.de/appstate/version.txt'));
 
 if(APPVERSION == $official_version)
 	die("NOUPD");
