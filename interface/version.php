@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define("APPVERSION", "0.5");
+define("APPVERSION", "0.6pre");
 define("APPURL", "http://github.com/Luzifer/kbuchhaltung/tree/master");
 
 ?>
