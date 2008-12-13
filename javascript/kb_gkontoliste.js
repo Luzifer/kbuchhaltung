@@ -64,10 +64,12 @@ function processGKontoListe(transport) {
 	}
 	
 	$('gkontenliste').appendChild(table);
+	HideLoadbar();
 }
 
 // Loads the list of categories on the right sidebar
 function loadgkontoliste() {
+	ShowLoadbar();
 	new Ajax.Request('interface/gkontoliste.php?date='+$('datechs').value, {
 		method: 'get',
 		asynchronous: false,

@@ -20,6 +20,7 @@ include_once('interface/version.php');
       <div id="kontenliste" onclick="hideKalender();"></div>
       <div id="gkontenliste" onclick="hideKalender();"></div>
       <div id="buchungen" onclick="hideKalender();"></div>
+      <img src="img/ajax-loader.gif" id="loadbar" />
       <div id="buchungneu">
       	
         <form id="buchungform">

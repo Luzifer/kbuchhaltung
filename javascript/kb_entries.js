@@ -124,6 +124,7 @@ function processEntryData(transport) {
 			onComplete: function(transport, element) { new Effect.Highlight(element, {startcolor: this.options.highlightcolor}); reloadSideData();}
 		});
 	}
+	HideLoadbar();
 }
 
 // Function to load the accounting entries of the given account
@@ -132,6 +133,7 @@ function loadbuchungen(ktoid) {
 		return;
 	$('nb_kto').value = ktoid;
 	$('buchungform').enable();
+	ShowLoadbar();
 	new Ajax.Request('interface/buchungsliste.php?kto='+ktoid+'&date='+$('datechs').value, {
 		method: 'get',
 		onSuccess: processEntryData,

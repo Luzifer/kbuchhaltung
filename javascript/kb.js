@@ -38,6 +38,13 @@ function initapp() {
 	suggestDate();
 }
 
+function ShowLoadbar() {
+	new Effect.Appear('loadbar', {duration: 0.1});
+}
+function HideLoadbar() {
+	new Effect.Fade('loadbar', {duration: 0.1});
+}
+
 // Sends a new accounting entry to the interface to store into the database
 // Additional loads the lists of accounts, categories and accounting entries again
 function dobook() {
@@ -65,11 +72,13 @@ function CheckAppInstalled() {
 }
 
 function reloadSideData() {
+	ShowLoadbar();
 	$('buchungform').reset();
 	loadkontoliste();
 	loadgkontoliste();
 	suggestDate();
 	$('nb_bez').focus();
+	HideLoadbar();
 }
 
 // Fills the current date into the form for the new accounting entry
@@ -116,6 +125,7 @@ function dodelentry() {
 
 // Receives the months with accounting entries from the database
 function loadBDates() {
+	ShowLoadbar();
 	new Ajax.Request('interface/buchungsdaten.php', {
 		method: 'get',
 		asynchronous: false,
@@ -140,6 +150,7 @@ function loadBDates() {
 			
 			$('datechs').selectedIndex = $('datechs').options.length - 1;
 			reselectPage();
+			HideLoadbar();
 		}
 	});
 }

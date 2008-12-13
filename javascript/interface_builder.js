@@ -67,5 +67,11 @@ function SetNewIFPositions() {
 		top: 		$('topheader').getHeight() + $('appmenu').getHeight() + 'px'
 	});
 	
+	$('loadbar').setStyle({
+		position: 'absolute',
+		left: (vp_width - $('loadbar').getWidth()) / 2 + 'px',
+		top: (vp_height - $('loadbar').getHeight()) / 2 + 'px',
+		zIndex: 5000
+	});
 	
 }
