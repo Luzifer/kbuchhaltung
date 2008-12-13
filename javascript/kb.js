@@ -36,6 +36,7 @@ function initapp() {
 	loadkontoliste();
 	loadgkontoliste();
 	suggestDate();
+	HideLoadbar();
 }
 
 function ShowLoadbar() {
@@ -72,13 +73,11 @@ function CheckAppInstalled() {
 }
 
 function reloadSideData() {
-	ShowLoadbar();
 	$('buchungform').reset();
 	loadkontoliste();
 	loadgkontoliste();
 	suggestDate();
 	$('nb_bez').focus();
-	HideLoadbar();
 }
 
 // Fills the current date into the form for the new accounting entry
@@ -123,18 +122,27 @@ function dodelentry() {
 	loadBDates();
 }
 
+function editKto(evt) {
+	var ktoId = Event.element(evt).id.replace('gkt', '');
+	activedia = CreateChangeAccountDialog(ktoId);
+	activedia.Show();
+}
+
+function dochgkto() {
+	new Ajax.Request('interface/chgkto.php?'+activedia.GetValues(), {
+		method: 'get',
+		asynchronous: false
+	});
+	reselectPage();
+	activedia.Hide();
+}
+
 // Receives the months with accounting entries from the database
 function loadBDates() {
-	ShowLoadbar();
 	new Ajax.Request('interface/buchungsdaten.php', {
 		method: 'get',
 		asynchronous: false,
 		onSuccess: function(transport) {
-			
-			// Removed because not working code
-			//for(var i = 0; i < $('datechs').options.length; i++) {
-			//	$('datechs').options[i] = null;
-			//}
 			$('datechs').options.length = 0;
 			
 			var txt = transport.responseText;
@@ -150,7 +158,6 @@ function loadBDates() {
 			
 			$('datechs').selectedIndex = $('datechs').options.length - 1;
 			reselectPage();
-			HideLoadbar();
 		}
 	});
 }

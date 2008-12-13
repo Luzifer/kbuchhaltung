@@ -1,3 +1,4 @@
+<?
 
 /*
  * KBuchhaltung is a script for the personal finance management
@@ -17,23 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// JavaScript Document
+$planwert = urldecode($_GET['planwert']);
+$planwert = str_replace(',', '.', $planwert);
 
-function CreateDelEntryDialog(entry) {
-	var dia = new KBDialog('delEntryDlg', 'Buchung l&ouml;schen', 350, 120, dodelentry);
-	
-	var eid = new Element('input');
-	eid.setAttribute('type', 'hidden');
-	eid.setAttribute('name', 'eid');
-	eid.setAttribute('value', entry);
-	dia.AddElement(eid);
-	
-	var txt = new Element('p');
-	txt.update('Soll diese Buchung wirklich gel&ouml;scht werden? Wenn Ja, best&auml;tigen Sie diesen Dialog bitte mit "OK", ansonsten schlie&szlig;en Sie ihn mit dem roten Kreuz rechts oben.');
-	txt.setStyle({
-		textAlign: 'center'
-	});
-	dia.AddElement(txt);
-	
-	return dia;
-}
+$name = mysql_real_escape_string(urldecode($_GET['name']));
+
+$kid = urldecode($_GET['kid']);
+
+include_once("mysql.php");
+
+$sql = "UPDATE konten SET bez = '$name', planval = $planwert WHERE id = $kid";
+mysql_query($sql);
+
+?>

@@ -41,7 +41,9 @@ function processGKontoListe(transport) {
 		else
 			td1.addClassName('ausgabe');
 		td1.addClassName('ktoname');
+		td1.id = 'gkt' + konto[3];
 		tr1.appendChild(td1);
+		td1.observe('dblclick', editKto);
 		
 		var tr2 = new Element('tr');
 		var td2 = new Element('td').update(konto[2]+' &euro;');
@@ -64,12 +66,10 @@ function processGKontoListe(transport) {
 	}
 	
 	$('gkontenliste').appendChild(table);
-	HideLoadbar();
 }
 
 // Loads the list of categories on the right sidebar
 function loadgkontoliste() {
-	ShowLoadbar();
 	new Ajax.Request('interface/gkontoliste.php?date='+$('datechs').value, {
 		method: 'get',
 		asynchronous: false,

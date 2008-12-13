@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `konten` (
   `id` int(11) NOT NULL auto_increment,
   `bez` varchar(50) NOT NULL,
   `typ` enum('g','a','e') NOT NULL,
+  `planval` float NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `bez` (`bez`)
 );
