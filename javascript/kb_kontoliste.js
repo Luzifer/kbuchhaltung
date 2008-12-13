@@ -23,6 +23,7 @@ function processKontoListe(transport) {
 	$('kontenliste').innerHTML = '';
 	var txt = transport.responseText;
 	var ul = new Element('ul');
+	ul.id = "kontenUL";
 	var konten = txt.split('\n');
 	for(var i = 0; i < konten.length - 1; i++) {
 		var konto = konten[i].split(';');
@@ -33,6 +34,11 @@ function processKontoListe(transport) {
 			li.update(konto[1]+'<br />(0,00 &euro;)');
 		li.observe('click', function(evt) {
 			loadbuchungen(Event.element(evt).id);
+			var lis = $('kontenUL').descendants();
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].style.background = '#fff';
+			}
+			Event.element(evt).style.background = '#eee';
 		});
 		li.addClassName('clickable');
 		ul.appendChild(li);

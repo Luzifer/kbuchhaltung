@@ -9,7 +9,7 @@ include_once('interface/version.php');
 <link href="kalender.css" type="text/css" rel="stylesheet" />
 <title>KBuchhaltung</title>
 <script language="JavaScript" src="javascript/libraries/prototype.js" type="text/javascript"></script>
-<script language="JavaScript" src="javascript/libraries/scriptaculous.js?load=effects,controls" type="text/javascript"></script>
+<script language="JavaScript" src="javascript/libraries/scriptaculous.js?load=effects,controls,dragdrop" type="text/javascript"></script>
 <script language="javascript" src="interface/jscompressor.php" type="text/javascript"></script>
 </head>
 

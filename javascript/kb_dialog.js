@@ -123,6 +123,8 @@ var KBDialog = Class.create({
 		new Element.observe(cncl, 'click', function() {new Effect.Fade(div, {duration: 0.4}); document.body.removeChild(div);});
 		div.appendChild(cncl);
 		
+		new Draggable(div);
+		
 		this.mainDiv = div;
 	}
 });

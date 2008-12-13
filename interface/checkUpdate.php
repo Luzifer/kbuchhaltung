@@ -1,3 +1,4 @@
+<?
 
 /*
  * KBuchhaltung is a script for the personal finance management
@@ -17,28 +18,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// JavaScript Document
+include('version.php');
 
-function WriteMenu() {
-	var buchhaltung = new KBMenu('Buchhaltung');
+$official_version = file_get_contents('http://www.kbuchhaltung.de/appstate/version.txt');
+
+if(APPVERSION == $official_version)
+	die("NOUPD");
 	
-	buchhaltung.AddEntry('Konto hinzufügen', function() { shownewkto(); });
-	buchhaltung.AddEntry('Neu starten', function() { window.history.go(0); });
-	
-	buchhaltung.WriteTo('appmenu', 0);
-	
-	
-	var auswertung = new KBMenu('Auswertung');
-	
-	auswertung.AddEntry('GuV-Rechnung', function() { doGuVrg(); });
-	
-	auswertung.WriteTo('appmenu', 1);
-	
-	
-	var info = new KBMenu('Info');
-	
-	info.AddEntry('Updates suchen', function() { checkUpdates(); });
-	info.AddEntry('Über KBuchhaltung', function() { aboutBox(); });
-	
-	info.WriteTo('appmenu', 2);
+if(strpos(APPVERSION, 'pre')) {
+	die("<b>Du benutzt eine Entwicklerversion.</b><br /><br />Bitte halte dich selber auf einem aktuellen Stand!");
 }
+	
+echo "<b>Version $official_version verf&uuml;gbar.</b><br /><br />";
+echo file_get_contents('http://www.kbuchhaltung.de/appstate/changelog.txt');
+
+?>
