@@ -20,8 +20,8 @@
 
 include_once('interface/mysql.php');
 
-define("MD5_INITIAL", "784d29eb419ce1351237793e3e1abb21");
-define("MD5_STRUCT", "7c5936c222f49c78baccad3b9f578f17");
+define("MD5_INITIAL", "91932530a19402cea71f793d779b6198");
+define("MD5_STRUCT", "156a33c8462614ae7b938d56e9326872");
 
 // Check validity of SQL files to prevent changes on this files without
 // some knowledge of the scripts used to access the database
