@@ -20,7 +20,14 @@
 
 include_once('mysql.php');
 
-$result = mysql_query("SELECT DATE_FORMAT(datum, '%Y-%m') FROM buchungen b GROUP BY DATE_FORMAT(datum, '%Y-%m') ORDER BY DATE_FORMAT(datum, '%Y-%m')");
+$sql = "SELECT * FROM (" .
+	"SELECT DATE_FORMAT(datum, '%Y-%m') as datum FROM buchungen b GROUP BY DATE_FORMAT(datum, '%Y-%m') ".
+	"UNION ". 
+	"SELECT DATE_FORMAT(datum, '%Y') as datum FROM buchungen b GROUP BY DATE_FORMAT(datum, '%Y') ".
+	") a ORDER BY datum";
+
+#$result = mysql_query("SELECT DATE_FORMAT(datum, '%Y-%m') FROM buchungen b GROUP BY DATE_FORMAT(datum, '%Y-%m') ORDER BY DATE_FORMAT(datum, '%Y-%m')");
+$result = mysql_query($sql);
 
 header('Content-Type: text/plain');
 EchoResult2CSV($result);
