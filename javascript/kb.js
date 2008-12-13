@@ -28,6 +28,7 @@ var STR_PAD_BOTH = 3;
 function initapp() {
 	CheckAppInstalled();
 	SetNewIFPositions();
+	WriteMenu();
 	Event.observe(window, 'resize', SetNewIFPositions);
 	$('buchungform').disable();
 	ShowCurrentCalendar('kalender', 'DataClick');

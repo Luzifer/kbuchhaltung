@@ -18,7 +18,7 @@ body, td {
 #maindiv {
 	width:1024px;
 	height:768px;
-	border:1px dashed #999999;
+	border:1px solid #999999;
 	margin: 0px auto;
 	position:relative;
 }
@@ -29,30 +29,21 @@ body, td {
 	top:0px;
 	height: 30px;
 	width: 900px;
-	border-bottom: 1px dashed #999;
+	border-bottom: 1px solid #999;
 	text-align:center;
 	font-size:18px;
 	font-weight:bold;
 	letter-spacing:2em;
+	background:#ddd;
 }
 
 #kontenliste {
 	position:absolute;
 	left:0px;
 	top:30px;
-	border-right:1px dashed #999;
+	border-right:1px solid #999;
 	width:150px;
 	height: 688px;
-}
-
-#actionbox {
-	position: absolute;
-	left: 0px;
-	bottom: 0px;
-	border-top: 1px dashed #999;
-	border-right:1px dashed #999;
-	width: 150px;
-	height: 50px;
 }
 
 #gkontenliste {
@@ -62,14 +53,14 @@ body, td {
 	width:150px;
 	height:738px;
 	overflow:auto;
-	border-left:1px dashed #999;
+	border-left:1px solid #999;
 }
 
 #buchungneu {
 	position:absolute;
 	left:150px;
 	bottom: 0px;
-	border-top:1px dashed #999;
+	border-top:1px solid #999;
 	width:724px;
 	height: 70px;
 }
@@ -89,8 +80,8 @@ body, td {
 	top:0px;
 	height:30px;
 	width:124px;
-	border-bottom:1px dashed #999;
-	border-left:1px dashed #999;
+	border-bottom:1px solid #999;
+	border-left:1px solid #999;
 }
 
 .ausgabe {
@@ -134,6 +125,11 @@ body, td {
 	height:100%;
 	text-align:center;
 	vertical-align:middle;
+}
+
+#appmenu {
+	border-bottom: 1px solid #999;
+	position:absolute;
 }
 
 #kalender {

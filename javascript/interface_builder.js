@@ -23,20 +23,49 @@ function SetNewIFPositions() {
 	var vp_height = window.document.viewport.getHeight() - 2;
 	var vp_width = window.document.viewport.getWidth() - 2;
 	
-	$('maindiv').style.height = vp_height + 'px';
-	$('maindiv').style.width = vp_width + 'px';
-	$('maindiv').style.position = 'absolute';
-	$('maindiv').style.left = '0px';
-	$('maindiv').style.top = '0px';
+	$('maindiv').setStyle({
+		'height': 	vp_height + 'px',
+		'width': 	vp_width + 'px',
+		'position': 'absolute',
+		'left': 	'0px',
+		'top': 		'0px'
+	});
 	
-	$('topheader').style.width = (vp_width - $('datechooser').getWidth()) + 'px' ;
+	$('topheader').setStyle({
+		'width': 	vp_width + 'px'
+	});
 	
-	$('kontenliste').style.height = (vp_height - $('topheader').getHeight() - $('actionbox').getHeight()) + 'px';
+	$('datechooser').setStyle({
+		'right': 	'0px',
+		'top': 		$('topheader').getHeight() + 'px'
+	}); 
 	
-	$('gkontenliste').style.height = (vp_height - $('topheader').getHeight()) + 'px';
+	$('appmenu').setStyle({
+		left: 		'0px',
+		top: 		$('topheader').getHeight() + 'px',
+		width: 		vp_width - $('datechooser').getWidth() + 'px',
+		height: 	$('datechooser').getHeight() - 1 + 'px'
+	});
 	
-	$('buchungneu').style.width = (vp_width - $('gkontenliste').getWidth() - $('kontenliste').getWidth()) + 'px';
+	$('kontenliste').setStyle({
+		height: 	(vp_height - $('topheader').getHeight() - $('appmenu').getHeight() ) + 'px',
+		top: 		$('topheader').getHeight() + $('appmenu').getHeight() + 'px'
+	});
 	
-	$('buchungen').style.width = (vp_width - $('gkontenliste').getWidth() - $('kontenliste').getWidth()) + 'px';
-	$('buchungen').style.height = (vp_height - $('topheader').getHeight() - $('buchungneu').getHeight()) + 'px';
+	$('gkontenliste').setStyle({
+		height: 	(vp_height - $('appmenu').getHeight() - $('topheader').getHeight()) + 'px',
+		top: 		$('topheader').getHeight() + $('appmenu').getHeight() + 'px'
+	});
+	
+	$('buchungneu').setStyle({
+		width: 		(vp_width - $('gkontenliste').getWidth() - $('kontenliste').getWidth()) + 'px'
+	});
+	
+	$('buchungen').setStyle({
+		width: 		(vp_width - $('gkontenliste').getWidth() - $('kontenliste').getWidth()) + 'px',
+		height: 	(vp_height - $('topheader').getHeight() - $('appmenu').getHeight() - $('buchungneu').getHeight()) + 'px',
+		top: 		$('topheader').getHeight() + $('appmenu').getHeight() + 'px'
+	});
+	
+	
 }

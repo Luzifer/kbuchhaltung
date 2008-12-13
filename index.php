@@ -16,11 +16,8 @@ include_once('interface/version.php');
 <body>
     <div id="maindiv">
       <div id="topheader">KBuchhaltung</div>
+      <div id="appmenu"></div>
       <div id="kontenliste" onclick="hideKalender();"></div>
-      <div id="actionbox" onclick="hideKalender();">
-      	<span class="clickable" onclick="shownewkto();">Neues Konto</span><br />
-      	<span class="clickable" onclick="doGuVrg();">GuV-Rechnung</span>
-      </div>
       <div id="gkontenliste" onclick="hideKalender();"></div>
       <div id="buchungen" onclick="hideKalender();"></div>
       <div id="buchungneu">
