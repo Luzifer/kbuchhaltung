@@ -22,7 +22,7 @@ include_once('mysql.php');
 
 $date = $_GET['date'];
 
-$result = mysql_query("SELECT k.bez,k.typ,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) * -1 FROM buchungen b WHERE b.gkonto = k.id AND b.datum LIKE '$date%'),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\", k.id FROM konten k WHERE k.typ <> 'g' ORDER BY k.typ DESC, k.bez");
+$result = mysql_query("SELECT k.bez,k.typ,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) * -1 FROM buchungen b WHERE b.gkonto = k.id AND b.datum LIKE '$date%'),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\", k.id, k.planval FROM konten k WHERE k.typ <> 'g' ORDER BY k.typ DESC, k.bez");
 
 
 header('Content-Type: text/plain');

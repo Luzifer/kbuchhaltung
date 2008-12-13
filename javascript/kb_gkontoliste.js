@@ -49,6 +49,10 @@ function processGKontoListe(transport) {
 		var td2 = new Element('td').update(konto[2]+' &euro;');
 		if(konto[2] == '') 
 			td2.update('0,00 &euro;');
+			
+		if((parseFloat(konto[4]) > 0.00) && ($('datechs').selectedIndex == $('datechs').options.length - 1)) {
+			td2.update(td2.innerHTML + ' / ' + number_format(konto[4], 2, ',', '') + ' &euro;');
+		}
 		td2.addClassName('ktosumme');
 		tr2.appendChild(td2);
 		
