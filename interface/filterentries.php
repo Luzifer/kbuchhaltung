@@ -20,10 +20,21 @@
 
 include_once("mysql.php");
 
-$kto = $_GET['kto'];
+$kto = $_GET['konto'];
 $date = $_GET['date'];
+$filtertext = urldecode($_GET['filtertext']);
 
-$result = mysql_query("SELECT DATE_FORMAT(b.datum, '%d.%m.%Y'), b.bez, gk.bez, b.betrag, b.id FROM buchungen b INNER JOIN konten gk ON gk.id = b.gkonto WHERE b.konto = $kto AND b.datum LIKE '$date%' ORDER BY b.datum DESC, b.id DESC");
+$sql = "SELECT DATE_FORMAT(b.datum, '%d.%m.%Y'), b.bez, gk.bez, b.betrag, b.id ".
+	"FROM buchungen b INNER JOIN konten gk ON gk.id = b.gkonto ".
+	"WHERE b.datum LIKE '$date%' AND b.bez LIKE '$filtertext' ";
+
+if($kto != "0") {
+	$sql .= "AND b.gkonto = $kto ";
+}
+
+$sql .= "ORDER BY b.datum DESC, b.id DESC";
+
+$result = mysql_query($sql);
 
 header('Content-Type: text/plain');
 EchoResult2CSV($result);

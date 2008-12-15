@@ -79,7 +79,7 @@ function processEntryData(transport) {
 		
 		// Create ammount column
 		var td4 = new Element('td');
-		var td4s = new Element('span').update(fields[3]);
+		var td4s = new Element('span').update(number_format(fields[3], 2, ',', '.'));
 		td4s.writeAttribute('id', 'id_'+fields[4]+';field_amount')
 		td4.appendChild(td4s);
 		

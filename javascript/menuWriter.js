@@ -31,6 +31,7 @@ function WriteMenu() {
 	var auswertung = new KBMenu('Auswertung');
 	
 	auswertung.AddEntry('GuV-Rechnung', function() { doGuVrg(); });
+	auswertung.AddEntry('Buchungsfilter', function() { showFilterDlg(); });
 	
 	auswertung.WriteTo('appmenu', 1);
 	

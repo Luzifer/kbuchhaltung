@@ -137,6 +137,21 @@ function dochgkto() {
 	activedia.Hide();
 }
 
+function showFilterDlg() {
+	activedia = CreateFilterDialog();
+	activedia.Show();
+}
+
+function dofltrentries() {
+	$('buchungform').disable();
+	new Ajax.Request('interface/filterentries.php?'+activedia.GetValues(), {
+		method: 'get',
+		asynchronous: false,
+		onSuccess: processEntryData
+	});
+	activedia.Hide();
+}
+
 // Receives the months with accounting entries from the database
 function loadBDates() {
 	new Ajax.Request('interface/buchungsdaten.php', {
