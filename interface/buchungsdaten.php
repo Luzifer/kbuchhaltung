@@ -30,6 +30,7 @@ $sql = "SELECT * FROM (" .
 $result = @mysql_query($sql);
 
 header('Content-Type: text/plain');
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 EchoResult2CSV($result);
 
 ?>

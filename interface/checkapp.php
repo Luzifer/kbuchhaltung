@@ -21,6 +21,7 @@
 include_once('mysql.php');
 
 header('Content-Type: text/plain');
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 if(mysql_query('SELECT COUNT(1) FROM buchungen') === false)
 	die("FAIL");

@@ -26,6 +26,7 @@ $date = $_GET['date'];
 $result = mysql_query("SELECT DATE_FORMAT(b.datum, '%d.%m.%Y'), b.bez, gk.bez, b.betrag, b.id FROM buchungen b INNER JOIN konten gk ON gk.id = b.gkonto WHERE b.konto = $kto AND b.datum LIKE '$date%' ORDER BY b.datum DESC, b.id DESC");
 
 header('Content-Type: text/plain');
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 EchoResult2CSV($result);
 
 ?>

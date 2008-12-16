@@ -17,6 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 
 $planwert = urldecode($_GET['planwert']);
 $planwert = str_replace(',', '.', $planwert);

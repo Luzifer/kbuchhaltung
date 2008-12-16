@@ -20,6 +20,8 @@
 
 include_once("mysql.php");
 
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
 $result = mysql_query("SELECT k.id,k.bez,(SELECT sum(b.betrag) FROM buchungen b WHERE b.konto = k.id) AS \"summe\" FROM konten k WHERE k.typ = 'g' ORDER BY k.bez");
 
 header('Content-Type: text/plain');
