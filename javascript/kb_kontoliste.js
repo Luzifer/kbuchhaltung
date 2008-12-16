@@ -29,7 +29,7 @@ function processKontoListe(transport) {
 		var konto = konten[i].split(';');
 		var li = new Element('li');
 		li.id = konto[0];
-		li.update(konto[1]+'<br />('+konto[2]+' &euro;)');
+		li.update(konto[1]+'<br />('+number_format(konto[2], 2, ',', '.')+' &euro;)');
 		if(konto[2] == '')
 			li.update(konto[1]+'<br />(0,00 &euro;)');
 		li.observe('click', function(evt) {
