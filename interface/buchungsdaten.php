@@ -27,7 +27,7 @@ $sql = "SELECT * FROM (" .
 	") a ORDER BY datum";
 
 #$result = mysql_query("SELECT DATE_FORMAT(datum, '%Y-%m') FROM buchungen b GROUP BY DATE_FORMAT(datum, '%Y-%m') ORDER BY DATE_FORMAT(datum, '%Y-%m')");
-$result = mysql_query($sql);
+$result = @mysql_query($sql);
 
 header('Content-Type: text/plain');
 EchoResult2CSV($result);

@@ -66,6 +66,6 @@ mysql_query("INSERT INTO appsettings VALUES ('version', '".APPVERSION."')");
 // If we get here we are happy and pass back to the interface which
 // should stop sending the user to the set-up again because there
 // is a working backend. :)
-header('Location: index.html');
+header('Location: index.php');
 
 ?>

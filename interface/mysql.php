@@ -25,7 +25,7 @@ mysql_connect($CONFIG['dbhost'], $CONFIG['dbuser'], $CONFIG['dbpass']) == true ?
 mysql_select_db($CONFIG['database']) == true ? define("DBG_MYSQL_DBSEL", true) : define("DBG_MYSQL_DBSEL", false);
 
 function EchoResult2CSV($result) {
-	while($row = mysql_fetch_row($result)) {
+	while($row = @mysql_fetch_row($result)) {
 		for($i = 0; $i < count($row); $i++) {
 			echo $row[$i];
 			if($i < count($row) - 1)

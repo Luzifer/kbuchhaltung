@@ -22,7 +22,7 @@ include_once('mysql.php');
 
 header('Content-Type: text/plain');
 
-if(!mysql_query('SELECT COUNT(1) FROM buchungen'))
+if(mysql_query('SELECT COUNT(1) FROM buchungen') === false)
 	die("FAIL");
 else
 	die("OK");

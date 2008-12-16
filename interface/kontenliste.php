@@ -20,7 +20,7 @@
 
 include_once("mysql.php");
 
-$result = mysql_query("SELECT k.id,k.bez,REPLACE(REPLACE(REPLACE(FORMAT((SELECT sum(b.betrag) FROM buchungen b WHERE b.konto = k.id),2),'.', 'ß'), ',', '.'), 'ß', ',') AS \"summe\" FROM konten k WHERE k.typ = 'g' ORDER BY k.bez");
+$result = mysql_query("SELECT k.id,k.bez,(SELECT sum(b.betrag) FROM buchungen b WHERE b.konto = k.id) AS \"summe\" FROM konten k WHERE k.typ = 'g' ORDER BY k.bez");
 
 header('Content-Type: text/plain');
 
