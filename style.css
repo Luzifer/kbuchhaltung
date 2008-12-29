@@ -84,11 +84,11 @@ body, td {
 	border-left:1px solid #999;
 }
 
-.ausgabe {
+.ausgabe, .rot {
 	color:#CC0000;
 }
 
-.einnahme {
+.einnahme, .gruen {
 	color:#339900;
 }
 
