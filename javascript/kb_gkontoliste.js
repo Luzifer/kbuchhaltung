@@ -52,6 +52,10 @@ function processGKontoListe(transport) {
 			
 		if((parseFloat(konto[4]) > 0.00) && ($('datechs').selectedIndex == $('datechs').options.length - 1)) {
 			td2.update(td2.innerHTML + ' / ' + number_format(konto[4], 2, ',', '') + ' &euro;');
+			if(parseFloat(konto[4]) < parseFloat(konto[2]))
+				td2.addClassName('rot');
+			else
+				td2.addClassName('gruen');
 		}
 		td2.addClassName('ktosumme');
 		tr2.appendChild(td2);
