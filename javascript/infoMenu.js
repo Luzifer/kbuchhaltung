@@ -40,12 +40,40 @@ function checkUpdates() {
 }
 
 function aboutBox() {
-	var dia = new KBDialog('aboutAppDlg', '&Uuml;ber KBuchhaltung', 450, 120);
+	var dia = new KBDialog('aboutAppDlg', '&Uuml;ber KBuchhaltung', 350, 170);
 	
-	var txt = new Element('p');
-	txt.update('KBuchhaltung wurde ver&ouml;ffentlicht unter GPL.<br /><br />'+
-	'Projekthomepage: <a href="http://http://github.com/Luzifer/kbuchhaltung/" target="_blank">http://github.com/Luzifer/kbuchhaltung/</a>');
-	dia.AddElement(txt);
+	var h = new Element('p');
+	h.update('KBuchhaltung');
+	h.setStyle({
+		fontSize: '12pt',
+		fontWeight: 'bold',
+		textAlign: 'center'
+	});
+	dia.AddElement(h);
+	
+	var version = new Element('p');
+	new Ajax.Updater(version, 'interface/version.php?js=true', {
+		asynchronous: false
+	});
+	version.setStyle({
+		textAlign: 'center'
+	});
+	dia.AddElement(version);
+	
+	var license = new Element('p');
+	license.update('Released under GNU General Public License');
+	license.setStyle({
+		textAlign: 'center'
+	});
+	dia.AddElement(license);
+	
+	var website = new Element('p');
+	website.update('<a href="http://github.com/Luzifer/kbuchhaltung/tree/master" target="_blank">Homepage öffnen</a><br />'+
+		'<a href="http://bugs.knut.me" target="_blank">Bugtracker öffnen</a>');
+	website.setStyle({
+		textAlign: 'center'
+	});
+	dia.AddElement(website);
 	
 	dia.Show();
 }
