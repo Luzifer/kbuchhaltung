@@ -41,6 +41,9 @@ function processKontoListe(transport) {
 			Event.element(evt).style.background = '#eee';
 		});
 		li.addClassName('clickable');
+		if(konto[0] == $('nb_kto').value) {
+			li.style.background = '#eee';
+		}
 		ul.appendChild(li);
 	}
 	$('kontenliste').appendChild(ul);
