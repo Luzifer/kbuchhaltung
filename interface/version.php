@@ -18,7 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define("APPVERSION", "0.6");
+define("APPVERSION", "0.7");
 define("APPURL", "http://github.com/Luzifer/kbuchhaltung/tree/master");
+
+if($_GET['js'])
+	echo "Version ".APPVERSION;
 
 ?>

@@ -39,8 +39,8 @@ if($dbv == "0.4") {
 	header('Location: ?');
 }
 
-if($dbv == "0.5") {
-	$sql = "UPDATE appsettings SET `value` = '0.6' WHERE `key` = 'version'";
+if($dbv == "0.5" || $dbv == "0.6") {
+	$sql = "UPDATE appsettings SET `value` = '0.7' WHERE `key` = 'version'";
 	if(!mysql_query($sql))
 		die('Error while setting database version. Your database is corrupt!');
 	header('Location: ?');
