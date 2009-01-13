@@ -23,7 +23,7 @@ include_once('interface/version.php');
       <img src="img/ajax-loader.gif" id="loadbar" />
       <div id="buchungneu">
       	
-        <form id="buchungform">
+        <form id="buchungform" onsubmit="return false;">
         Neue Buchung:<br />
       	<table width="100%" cellspacing="2">
         	<tr>
