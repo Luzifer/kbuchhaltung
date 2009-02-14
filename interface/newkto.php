@@ -25,7 +25,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 $kto = $_GET['nk_kto'];
 $typ = $_GET['nk_typ'];
 
-mysql_query("INSERT INTO konten VALUES (NULL, '$kto', '$typ')");
+mysql_query("INSERT INTO konten VALUES (NULL, '$kto', '$typ', 0)");
 
 ?>
 
