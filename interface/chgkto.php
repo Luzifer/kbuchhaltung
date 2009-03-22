@@ -29,6 +29,10 @@ $kid = urldecode($_GET['kid']);
 include_once("mysql.php");
 
 $sql = "UPDATE konten SET bez = '$name', planval = $planwert WHERE id = $kid";
+
+if($_GET['ktodel'] == "on")
+	$sql = "DELETE FROM konten WHERE id = $kid";
+
 mysql_query($sql);
 
 ?>

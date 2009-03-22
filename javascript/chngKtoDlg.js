@@ -87,7 +87,7 @@ function CreateChangeAccountDialog(konto) {
 	dia.AddElement(ktodellbl);
 	
 	var ktodeledit = new Element('input');
-	ktodeledit.name = 'planwert';
+	ktodeledit.name = 'ktodel';
 	ktodeledit.type = 'checkbox';
 	ktodeledit.setStyle({
 		left: '105px',
