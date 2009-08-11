@@ -266,7 +266,7 @@ function checkValidDate(date) {
 		year = tmp[0];
 	} else return false;
 	
-	month = parseInt(month) - 1; // Javascript has month 0-11 instead of 1-12... 
+	month = parseInt(month, 10) - 1; // Javascript has month 0-11 instead of 1-12... 
 	
 	dteDate = new Date(year, month, day);
 
