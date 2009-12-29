@@ -1,4 +1,4 @@
-<?
+<?php
 
 /*
  * KBuchhaltung is a script for the personal finance management
