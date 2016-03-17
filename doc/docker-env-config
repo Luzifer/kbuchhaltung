@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+cat <<EOF > /var/www/interface/config.inc.php
+<?php
+
+\$CONFIG['database'] = "${DB_NAME}";
+\$CONFIG['dbuser'] = "${DB_USER}";
+\$CONFIG['dbpass'] = "${DB_PASS}";
+\$CONFIG['dbhost'] = "${DB_HOST}";
+
+?>
+EOF
